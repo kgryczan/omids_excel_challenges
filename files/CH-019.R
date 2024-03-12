@@ -9,22 +9,22 @@ test  = read_excel("files/CH-019 Suduku in Excel.xlsx", range = "O3:T8",
 
 row_na = apply(input, 1, function(x) sum(is.na(x)))
 row_na = which(row_na == 1)
-for (r in 1:length(row_na)){
+for (r in 1:length(row_na)) {
   input[row_na[r], which(is.na(input[row_na[r],]))] = 21 - sum(input[row_na[r],], na.rm = TRUE)
 }
 col_na = apply(input, 2, function(x) sum(is.na(x)))
 col_na = which(col_na == 1)
-for (c in 1:length(col_na)){
+for (c in 1:length(col_na)) {
   input[which(is.na(input[,col_na[c]])), col_na[c]] = 21 - sum(input[,col_na[c]], na.rm = TRUE)
 }
 row_na = apply(input, 1, function(x) sum(is.na(x)))
 row_na = which(row_na == 1)
-for (r in 1:length(row_na)){
+for (r in 1:length(row_na)) {
   input[row_na[r], which(is.na(input[row_na[r],]))] = 21 - sum(input[row_na[r],], na.rm = TRUE)
 }
 col_na = apply(input, 2, function(x) sum(is.na(x)))
 col_na = which(col_na == 1)
-for (c in 1:length(col_na)){
+for (c in 1:length(col_na)) {
   input[which(is.na(input[,col_na[c]])), col_na[c]] = 21 - sum(input[,col_na[c]], na.rm = TRUE)
 }
 
@@ -43,7 +43,7 @@ input[row_of_missing[2], col_of_missing[2]] <- intersect(second_row, second_col)
 
 row_na = apply(input, 1, function(x) sum(is.na(x)))
 row_na = which(row_na == 1)
-for (r in 1:length(row_na)){
+for (r in 1:length(row_na)) {
   input[row_na[r], which(is.na(input[row_na[r],]))] = 21 - sum(input[row_na[r],], na.rm = TRUE)
 }
 
