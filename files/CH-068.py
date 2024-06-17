@@ -13,4 +13,4 @@ def draw_triangle(n):
             mat[n - i, :] = mat[i - 1, :]
         print(mat)
 
-draw_triangle(8)
+draw_triangle(7)
