@@ -1,5 +1,4 @@
 import pandas as pd
-import re
 
 path = "CH-071 Extract from Text.xlsx"
 input = pd.read_excel(path, usecols = "B", skiprows = 1)
