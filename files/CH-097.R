@@ -13,10 +13,10 @@ df = years %>%
   mutate(across(c("A", "B", "C"), ~ na.approx(.x, na.rm = FALSE))) %>%
   mutate(across(
     c("A", "B", "C"),
-    ~ if_else(
-      row_number() == 1,
-      2 * lead(.x) - lead(lead(.x)),
-      if_else(row_number() == n(), 2 * lag(.x) - lag(lag(.x)), .x)
+    ~ case_when(
+      row_number() == 1 ~ 2 * lead(.x) - lead(lead(.x)),
+      row_number() == n() ~ 2 * lag(.x) - lag(lag(.x)),
+      TRUE ~ .x
     )
   )) %>%
   mutate(across(c("A", "B", "C"), round, 0))
