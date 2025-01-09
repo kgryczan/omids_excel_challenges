@@ -43,7 +43,7 @@ knights_tour = function(N, start_pos) {
             if (!is.null(next_step)) {
                 return(next_step)
             }
-        }
+        }=======
         board[x, y] = -1
         return(NULL)
     }
