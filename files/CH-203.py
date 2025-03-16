@@ -14,4 +14,4 @@ result_summary = (input.query("wday not in ['Saturday', 'Sunday'] and Sales == 0
                   .groupby('Group').size().reset_index(name='No missing dates')
                   .sort_values('No missing dates').reset_index(drop=True))
 
-print(test['No missing dates'].equals(result_summary['No missing dates']))
+print(test['No missing dates'].equals(result_summary['No missing dates'])) # True
