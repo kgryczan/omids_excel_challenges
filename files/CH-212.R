@@ -3,13 +3,15 @@ library(readxl)
 
 path = "files/CH-212 Remove duplicate.xlsx"
 input = read_excel(path, range = "B2:E16")
-test  = read_excel(path, range = "G2:G11")
+test  = read_excel(path, range = "G2:G11") %>% arrange(`Item Code`)
 
-result = list(input$`List 1`, input$`List 2`, input$`List 3`, input$`List 4`) %>%
-  unlist() %>%
-  enframe(name = NULL) %>%
-  count(value) %>%
+
+value_counts = input %>%
+  pivot_longer(cols = everything(), names_to = "Column Title", values_to = "Value") %>%
+  summarise(n = n_distinct(`Column Title`), .by  = Value) %>%
   filter(n == 1) %>%
-  select(`Item Code` = value)
+  select(-n) %>%
+  arrange(Value)
 
-# X-025 and X-022 are repeating
+all.equal(test$`Item Code`, value_counts$Value, check.attributes = FALSE)
+#> [1] TRUE
