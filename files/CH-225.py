@@ -11,5 +11,9 @@ test = pd.read_excel(path, usecols="E", skiprows=1, nrows=11).assign(Dates=lambd
 
 result = pd.DataFrame({'Dates': pd.date_range(start=start, end=end, freq=f"{step}D")})
 
+<<<<<<< HEAD
 print(result.equals(test)) # True
 
+=======
+print(result.equals(test)) # True if the result matches the test data
+>>>>>>> b27df38c727c140b11ddbfe6289bd12c4d6cac85
