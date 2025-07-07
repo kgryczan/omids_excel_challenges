@@ -1,3 +1,9 @@
 {
-    "codesnap.roundedCorners": false
+    "codesnap.roundedCorners": false,
+    "positron.assistant.enable": true,
+    "inlineChat.accessibleDiffView": "on",
+    "inlineChat.enableV2": true,
+    "positron.assistant.enabledProviders": [
+        "openai"
+    ]
 }
