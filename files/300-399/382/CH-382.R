@@ -8,9 +8,12 @@ test <- read_excel(path, range = "F3:F9")
 is_valid = function(s) {
   nums = str_extract_all(s, "[1-9]")[[1]] %>% as.numeric()
   num_prod = prod(nums)
-  return(num_prod %% 4 == 0 || num_prod %% 3 == 0)
+  num_sum = sum(nums)
+  return(num_prod %% 4 == 0 || num_sum %% 3 == 0)
 }
 
 result = input %>%
   filter(map_lgl(ID, is_valid))
-# PQ1347 which is filtered out shouldn't be because product is 105 which is divisible by 3.
+
+all.equal(result$ID, test$ID)
+# [1] TRUE
